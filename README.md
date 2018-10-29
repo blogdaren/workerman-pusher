@@ -3,7 +3,7 @@
 ## What is it
 An async web backend pusher written based on workerman
 
-## workerman-pusher是什么
+## 它是什么
 workerman-pusher 是基于workerman开发的一个异步消息推送器: 它能够模拟WEB后台单向异步推送业务通知。
 
 ## Prerequisites
@@ -12,7 +12,7 @@ workerman-pusher 是基于workerman开发的一个异步消息推送器: 它能�
 * POSIX extensions for PHP  
 * PCNTL extensions for PHP  
 
-## Config
+## Configuration
 
 ```php
 return array(
@@ -73,13 +73,13 @@ mainly use function `stream_socket_client()`
 
 
 ## Demostrate
-![demo1](https://github.com/blogdaren/workerman-pusher/blob/master/media/demo1.png)
+![demo1](https://github.com/blogdaren/workerman-pusher/blob/master/media/demo-1.png)
 ----
-![demo2](https://github.com/blogdaren/workerman-pusher/blob/master/media/demo2.png)
+![demo2](https://github.com/blogdaren/workerman-pusher/blob/master/media/demo-2.png)
 ----
-![demo3](https://github.com/blogdaren/workerman-pusher/blob/master/media/demo3.png)
+![demo3](https://github.com/blogdaren/workerman-pusher/blob/master/media/demo-3.png)
 ----
-![demo4](https://github.com/blogdaren/workerman-pusher/blob/master/media/demo4.png)
+![demo4](https://github.com/blogdaren/workerman-pusher/blob/master/media/demo-4.png)
 
 ## Documentation
 To be supplemented ...... 

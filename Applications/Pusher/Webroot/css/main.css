@@ -1,0 +1,3 @@
+body{background-color:#393D49;}
+#tipsTitle{font-size:18px;color:red;width:370px;word-break:break-all;padding:5px;overflow:auto;}
+#tips{font-size:18px;color:yellow;width:370px;height:550px;word-break:break-all;padding:5px;overflow:auto;}

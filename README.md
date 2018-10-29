@@ -1,0 +1,87 @@
+# Workerman-Pusher
+
+## What is it
+An async web backend pusher written based on workerman
+
+## workerman-pusher是什么
+workerman-pusher 是基于workerman开发的一个异步消息推送器: 它能够模拟WEB后台单向异步推送业务通知。
+
+## Prerequisites
+* \>= PHP 5.3
+* A POSIX compatible operating system (Linux, OSX, BSD)  
+* POSIX extensions for PHP  
+* PCNTL extensions for PHP  
+
+## Config
+
+```php
+return array(
+    //调试
+    'debug' => true,
+
+    //默认测试域名: 记得配置 /etc/hosts !!!
+    'domain' => 'www.pusher.com',
+
+    //模拟uid(也可以是订单id | 也可以是任务id | ....)
+    'uids' => array('1', '2', '3', '4', '5', '6'),
+
+    //超时: 秒
+    'timeout' => array(
+        'reconnect' => 2,
+    ),
+
+    //间隔: 秒
+    'interval' => array(
+        //页面弹窗通知间隔时间
+        'notice' => 3,
+        //客户端发送心跳间隔时间
+        'client_heart' => 1,
+    ),
+
+    //socket
+    'socket' => array(
+        //监听服务
+        'listen' => array(
+            'web'       => 'http://0.0.0.0:7777',
+            'pusher'    => 'websocket://0.0.0.0:3000',
+            'inner'     => 'text://0.0.0.0:4000',
+        ),
+        //连接哪个内部推送地址
+        'connect' => array(
+            'inner'  => 'text://127.0.0.1:4000',
+        ),
+    ),
+);
+```
+
+## How to play
+step-1、append one line below to /etc/hosts:
+```127.0.0.1 www.pusher.com```
+step-2、start workerman-pusher sever:
+```/path/to/php /path/to/start.php start```
+step-3、you can start built-in client like this:
+```/path/to/php /path/to/Applications/Pusher/start_client.php start```
+step-3、or you can write client in PHP by yourself like this:
+mainly use function `stream_socket_client()` 
+
+
+## Demostrate
+![demo1](https://github.com/blogdaren/workerman-pusher/blob/master/media/demo1.png)
+----
+![demo2](https://github.com/blogdaren/workerman-pusher/blob/master/media/demo2.png)
+----
+![demo3](https://github.com/blogdaren/workerman-pusher/blob/master/media/demo3.png)
+----
+![demo4](https://github.com/blogdaren/workerman-pusher/blob/master/media/demo4.png)
+
+## Documentation
+To be supplemented ...... 
+
+## Related links and thanks
+
+* [http://www.blogdaren.com](http://www.blogdaren.com)
+* [https://www.workerman.net](https://www.workerman.net)
+
+## Join In QQ:
+![qqgroup](https://github.com/blogdaren/workerman-pusher/blob/master/media/qqgroup.png)
+

@@ -6,6 +6,9 @@ An async web backend pusher written based on workerman
 ## 它是什么
 workerman-pusher 是基于workerman开发的一个异步消息推送器: 它能够模拟WEB后台单向异步推送业务通知。
 
+## GIF-Show
+![demo](https://github.com/blogdaren/workerman-pusher/blob/master/media/demo.gif)
+
 ## Prerequisites
 * \>= PHP 5.3
 * A POSIX compatible operating system (Linux, OSX, BSD)  

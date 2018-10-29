@@ -55,13 +55,20 @@ return array(
 ```
 
 ## How to play
-step-1、append one line below to /etc/hosts:
+* step-1、append one line below to /etc/hosts:
+
 ```127.0.0.1 www.pusher.com```
-step-2、start workerman-pusher sever:
+
+* step-2、start workerman-pusher sever:
+
 ```/path/to/php /path/to/start.php start```
-step-3、you can start built-in client like this:
+
+* step-3、you can start built-in client like this:
+
 ```/path/to/php /path/to/Applications/Pusher/start_client.php start```
-step-3、or you can write client in PHP by yourself like this:
+
+* step-3、or you can write client in PHP by yourself like this:
+
 mainly use function `stream_socket_client()` 
 
 

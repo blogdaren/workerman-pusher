@@ -6,7 +6,7 @@ A message pusher written based on workerman, which can simulate WEB background o
 ## 它是什么
 workerman-pusher 是基于workerman开发的一个异步消息推送器: 它能够模拟WEB后台单向异步推送业务通知。
 
-## GIF-SHOW
+## Animation
 ![demo](https://github.com/blogdaren/workerman-pusher/blob/master/media/demo.gif)
 
 ## Prerequisites
@@ -57,7 +57,7 @@ return array(
 );
 ```
 
-## How to play
+## Usage
 * step-1、append one line below to /etc/hosts:
 
 ```127.0.0.1 www.pusher.com```

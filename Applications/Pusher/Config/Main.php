@@ -41,9 +41,9 @@ return array(
     //间隔: 秒
     'interval' => array(
         //页面弹窗通知间隔时间
-        'notice' => 3,
+        'notice' => 2,
         //客户端发送心跳间隔时间
-        'client_heart' => 1,
+        'client_heart' => 0.5,
     ),
 
     //socket

@@ -51,16 +51,19 @@ return array(
         ),
         //连接哪个内部推送地址
         'connect' => array(
-            'inner'  => 'text://127.0.0.1:4000',
+            'inner'  => 'text://192.168.1.100:4000',
         ),
     ),
 );
 ```
 
 ## Usage
+
+First of all, let suppose your Server IP is: ```192.168.1.100```
+
 * step-1、append one line below to /etc/hosts:
 
-```127.0.0.1 www.pusher.com```
+```192.168.1.100 www.pusher.com```
 
 * step-2、start workerman-pusher sever:
 
@@ -73,6 +76,10 @@ return array(
 * step-3、or you can write client in PHP by yourself like this:
 
 mainly use function `stream_socket_client()`, `fread()` , `fwrite()` and so on
+
+* step-3、or you can have a test by telnet:
+
+```telnet 192.168.1.100 4000```
 
 
 ## Demostrate

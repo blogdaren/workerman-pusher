@@ -6,7 +6,8 @@ list($min_uid, $max_uid) = array(min($config['uids']), max($config['uids']));
 $interval_notice = $config['interval']['notice'] * 1000;
 $interval_client_heart  = $config['interval']['client_heart'] * 1000;
 $pusher_socket = $config['socket']['listen']['pusher'];
-$pusher_port = array_pop(explode(':', $pusher_socket));
+$tmp = explode(':', $pusher_socket);
+$pusher_port = array_pop($tmp);
 //config: 后续考虑封装起来
 ?>
 

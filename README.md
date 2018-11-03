@@ -54,6 +54,12 @@ return array(
             'inner'  => 'text://192.168.1.100:4000',
         ),
     ),
+    //ping - heartbeat - 秒
+    'ping' => array(
+        'interval' => 10,
+        'data'     => '',
+        'is_force_client_to_ping_server'    => true,
+    ),
 );
 ```
 

@@ -8,6 +8,7 @@
  */
 
 use \Workerman\Worker;
+use \Workerman\Lib\Timer;
 
 //autoload
 require_once dirname(dirname(__DIR__)) . '/vendor/autoload.php';
@@ -33,10 +34,40 @@ class Pusher
     public $uidConnections = array();
 
     /**
-     *
-     *
+     *  configuration
+     *  @var array
      */
     private $_config = array();
+
+    /**
+     *  ping interval
+     *  @var int
+     */
+    public $pingInterval = 0;
+
+    /**
+     *  send ping data to client
+     *  @var string
+     */
+    public $pingData = '';
+
+    /**
+     *  whether force client to ping server or not
+     *  @var boolean
+     */
+    public $isForceClientToPingServer = false;
+
+    /**
+     *  whether received client ping or not 
+     *  @var boolean
+     */
+    public $isReceivedClientPing = false;
+
+    /**
+     *  all timer
+     *  @var array
+     */
+    public $_timers = array();
 
     /**
      * @brief   get single instance 
@@ -80,9 +111,14 @@ class Pusher
         //set callback
         $this->_pusher->onWorkerStart   = array($this, 'onPusherStart');
         $this->_pusher->onWorkerStop    = array($this, 'onPusherStop');
-        $this->_pusher->onConnect       = array($this, 'onPusherConnect');
-        $this->_pusher->onClose         = array($this, 'onPusherClose');
-        $this->_pusher->onMessage       = array($this, 'onPusherMessage');
+        $this->_pusher->onConnect       = array($this, 'onClientConnect');
+        $this->_pusher->onClose         = array($this, 'onClientClose');
+        $this->_pusher->onMessage       = array($this, 'onClientMessage');
+
+        //heartbeat
+        $this->_config['ping']['interval'] > 0 && $this->pingInterval = $this->_config['ping']['interval'];
+        !empty($this->_config['ping']['data']) && $this->pingData = $this->_config['ping']['data'];
+        $this->isForceClientToPingServer = $this->_config['ping']['is_force_client_to_ping_server'];
     }
 
     /**
@@ -94,6 +130,13 @@ class Pusher
      */
     public function onPusherStart($worker)
     {
+        //heartbeat
+        if($this->pingInterval > 0)
+        {
+            $timer_id = Timer::add($this->pingInterval, array($this, 'ping')); 
+            $this->_timers[] = $timer_id;
+        }
+
         //inner push port !! attention !!
         $inner_socket = $this->_config['socket']['listen']['inner'];
         $inner_worker = new Worker($inner_socket);
@@ -131,27 +174,33 @@ class Pusher
     }
 
     /**
-     * @brief    onPusherConnect    
+     * @brief    onClientConnect    
      *
      * @param    object $connection
      *
      * @return   null
      */
-    public function onPusherConnect($connection)
+    public function onClientConnect($connection)
     {
+        $connection->isReceivedClientPing = true;
     }
 
     /**
-     * @brief    onPusherMessage    
+     * @brief    onClientMessage    
      *
      * @param    object $connection
      * @param    string $data
      *
      * @return   
      */
-    public function onPusherMessage($connection, $data)
+    public function onClientMessage($connection, $data)
     {
         $data = json_decode($data, true);
+
+        if(isset($data['event']) && $data['event'] == 'ping') 
+        {
+            $connection->isReceivedClientPing = true;
+        }
 
         if(isset($data['uid']))
         {
@@ -181,13 +230,13 @@ class Pusher
     }
 
     /**
-     * @brief    onPusherClose  
+     * @brief    onClientClose  
      *
      * @param    object $connection
      *
      * @return   null
      */
-    public function onPusherClose($connection)
+    public function onClientClose($connection)
     {
         if(!isset($connection->uid) || empty($connection->uid)) return;
 
@@ -224,6 +273,39 @@ class Pusher
         $this->_config['debug'] && pprint('client-'.$uid.' is offline 【-----】');
 
         return false;
+    }
+
+    /**
+     * @brief    ping   
+     *
+     * @return   null 
+     */
+    public function ping()
+    {
+        foreach($this->_pusher->uidConnections as $connection)
+        {
+            if($this->isForceClientToPingServer && false === $connection->isReceivedClientPing)
+            {
+                $connection->close();
+                continue;
+            }
+
+            $connection->isReceivedClientPing = false;
+            $this->pingData && $connection->send((string)$this->pingData);
+        }
+    }
+
+    /**
+     * @brief    removeAllTimer     
+     *
+     * @return   null
+     */
+    public function removeAllTimer()
+    {
+        foreach($this->_timers as $timer_id)
+        {
+            Timer::del($timer_id);
+        }
     }
 }
 

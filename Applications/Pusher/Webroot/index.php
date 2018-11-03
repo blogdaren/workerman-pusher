@@ -94,7 +94,7 @@ function onopen()
             $("#tips").append(log_msg);
             var tipsDiv = document.getElementById("tips");
             tipsDiv.scrollTop = tipsDiv.scrollHeight;
-            ws.send('{"type":"ping"}');
+            ws.send('{"event":"ping"}');
         }, interval_client_heart);
     });
 

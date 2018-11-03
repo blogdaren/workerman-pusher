@@ -43,7 +43,7 @@ return array(
         //页面弹窗通知间隔时间
         'notice' => 2,
         //客户端发送心跳间隔时间
-        'client_heart' => 0.5,
+        'client_heart' => 5,
     ),
 
     //socket
@@ -59,6 +59,15 @@ return array(
             'inner'  => 'text://127.0.0.1:4000',
         ),
     ),
+    //ping - heartbeat - 秒
+    'ping' => array(
+        'interval' => 10,
+        'data'     => '',
+        'is_force_client_to_ping_server'    => true,
+    ),
 );
+
+
+
 
 

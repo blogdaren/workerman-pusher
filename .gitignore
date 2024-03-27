@@ -1,6 +1,10 @@
 *.log
+*.lock
 *.pid
 .idea
 .buildpath
 .project
 .settings
+.DS_Store
+logs
+vendor

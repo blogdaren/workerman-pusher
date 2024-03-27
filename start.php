@@ -1,10 +1,10 @@
 <?php
 /**
  * @script   start.php
- * @brief    
+ * @brief    global.startup
  * @author   blogdaren<blogdaren@163.com>
- * @version  1.0.0
- * @modify   2018-10-28
+ * @link     http://www.phpcreeper.com
+ * @create   2018-10-28
  */
 
 use Workerman\Worker;

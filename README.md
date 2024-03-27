@@ -3,7 +3,6 @@
 ## What is it
 A simple message pusher written based on workerman, which can simulate WEB background one-way push business notification to clients asynchronously.
 
-## 它是什么
 workerman-pusher 是基于workerman开发的一个异步消息推送器: 它能够模拟WEB后台单向异步推送业务通知。
 
 ## Animation
@@ -65,27 +64,37 @@ return array(
 
 ## Usage
 
-First of all, let suppose your Server IP is: ```192.168.1.100```
+Assume your Server IP is: ```192.168.1.100```
 
 * step-1、append one line below to /etc/hosts:
 
-```192.168.1.100 www.pusher.com```
+```
+192.168.1.100  www.pusher.com
+```
 
-* step-2、start workerman-pusher sever:
+* step-2、start workerman-pusher server:
 
-```/path/to/php /path/to/start.php start```
+```
+php start.php start
+```
 
 * step-3、you can start built-in client like this:
 
-```/path/to/php /path/to/Applications/Pusher/start_client.php start```
+```
+php Applications/Pusher/start_client.php start
+```
 
 * step-3、or you can write client in PHP by yourself like this:
 
-mainly use function `stream_socket_client()`, `fread()` , `fwrite()` and so on
+```
+mainly use functions like `stream_socket_client()`, `fread()` , `fwrite()` and so on
+```
 
-* step-3、or you can have a test by telnet:
+* step-3、or you can have a simple test by telnet:
 
-```telnet 192.168.1.100 4000```
+```
+telnet 192.168.1.100 4000
+```
 
 
 ## Demostrate
@@ -97,14 +106,10 @@ mainly use function `stream_socket_client()`, `fread()` , `fwrite()` and so on
 ----
 ![demo4](https://github.com/blogdaren/workerman-pusher/blob/master/media/demo-4.png)
 
-## Documentation
-To be supplemented ...... 
 
 ## Related links and thanks
 
 * [http://www.blogdaren.com](http://www.blogdaren.com)
+* [http://www.phpcreeper.com](http://www.phpcreeper.com)
 * [https://www.workerman.net](https://www.workerman.net)
-
-## Join In QQ:
-![qqgroup](https://github.com/blogdaren/workerman-pusher/blob/master/media/qqgroup.png)
 

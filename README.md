@@ -9,7 +9,7 @@ workerman-pusher 是基于workerman开发的一个异步消息推送器: 它能�
 ![demo](https://github.com/blogdaren/workerman-pusher/blob/master/media/demo.gif)
 
 ## Prerequisites
-* \>= PHP 5.3
+* PHP \>= 7.0
 * A POSIX compatible operating system (Linux, OSX, BSD)  
 * POSIX extensions for PHP  
 * PCNTL extensions for PHP  

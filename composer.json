@@ -1,0 +1,17 @@
+{
+    "name": "blogdaren/workerman-pusher",
+    "type": "library",
+    "homepage": "http://www.phpcreeper.com",
+    "description": "A simple message pusher written based on workerman, which can simulate WEB background unidirectional push business notification to clients asynchronously",
+    "license": "MIT", 
+    "authors": [
+        {   
+            "name": "blogdaren",
+            "email": "blogdaren@163.com"
+        }   
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "workerman/workerman": ">=3.5.0,<4.0.0"
+    }
+}

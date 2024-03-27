@@ -66,31 +66,37 @@ return array(
 
 Assume your Server IP is: ```192.168.1.100```
 
-* step-1、append one line below to /etc/hosts:
+* step-1、install dependency packages:
+
+```
+composer install
+```
+
+* step-2、append one line below to /etc/hosts:
 
 ```
 192.168.1.100  www.pusher.com
 ```
 
-* step-2、start workerman-pusher server:
+* step-3、start workerman-pusher server:
 
 ```
 php start.php start
 ```
 
-* step-3、you can start built-in client like this:
+* step-4、you can start built-in client like this:
 
 ```
 php Applications/Pusher/start_client.php start
 ```
 
-* step-3、or you can write client in PHP by yourself like this:
+* step-4、or you can write client in PHP by yourself like this:
 
 ```
 mainly use functions like `stream_socket_client()`, `fread()` , `fwrite()` and so on
 ```
 
-* step-3、or you can have a simple test by telnet:
+* step-4、or you can have a simple test by telnet:
 
 ```
 telnet 192.168.1.100 4000

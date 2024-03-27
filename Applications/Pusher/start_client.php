@@ -1,11 +1,10 @@
 <?php
 /**
- * @brief    模拟后端推送业务代码
- *
  * @script   start_client.php
+ * @brief    
  * @author   blogdaren<blogdaren@163.com>
- * @version  1.0.0
- * @modify   2018-10-29
+ * @link     http://www.phpcreeper.com
+ * @create   2018-10-28
  */
 
 use \Workerman\Worker;

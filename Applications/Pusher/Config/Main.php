@@ -3,9 +3,8 @@
  * @script   Main.php
  * @brief    主配置文件
  * @author   blogdaren<blogdaren@163.com>
- * @link     http://www.blogdaren.com
- * @version  1.0.0
- * @modify   2018-10-29
+ * @link     http://www.phpcreeper.com
+ * @create   2018-10-29
  */
 
 /****************************基础设置************************************************/

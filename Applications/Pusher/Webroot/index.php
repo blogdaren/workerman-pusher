@@ -1,5 +1,5 @@
 <?php
-//config: 后续考虑封装起来
+//config: 可以考虑封装起来
 $config = include(dirname(__DIR__) . "/Config/Main.php");
 $uids = json_encode($config['uids']); 
 list($min_uid, $max_uid) = array(min($config['uids']), max($config['uids']));
@@ -8,7 +8,6 @@ $interval_client_heart  = $config['interval']['client_heart'] * 1000;
 $pusher_socket = $config['socket']['listen']['pusher'];
 $tmp = explode(':', $pusher_socket);
 $pusher_port = array_pop($tmp);
-//config: 后续考虑封装起来
 ?>
 
 <html>

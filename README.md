@@ -115,7 +115,6 @@ telnet 192.168.1.100 4000
 
 ## Related links and thanks
 
-* [http://www.blogdaren.com](http://www.blogdaren.com)
 * [http://www.phpcreeper.com](http://www.phpcreeper.com)
 * [https://www.workerman.net](https://www.workerman.net)
 
